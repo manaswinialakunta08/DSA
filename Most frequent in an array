@@ -1,0 +1,24 @@
+class Solution {
+    public int mostFreqEle(int[] arr) {
+        // code here
+        HashMap<Integer,Integer> obj = new HashMap<>();
+        for(int num:arr){
+        obj.put(num,obj.getOrDefault(num,0)+1);
+        }
+        int max = 0;
+        int answer = 0;
+
+        for (int key : obj.keySet()) {
+
+            int frequency = obj.get(key);
+
+            if ((frequency > max) ||  (frequency == max && key > answer)) {
+                max = frequency;
+                answer = key;
+            }
+        }
+
+        return answer;
+        
+}
+}
