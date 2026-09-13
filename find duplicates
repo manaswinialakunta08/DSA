@@ -1,0 +1,19 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashMap<Integer,Integer> obj = new HashMap<>();
+        for (int num:nums)
+        {
+            obj.put(num,obj.getOrDefault(num,0)+1);
+        }
+        int frequency=0;
+        for(int key: obj.keySet())
+        {
+            frequency=obj.get(key);
+            if(frequency > 1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }  
+    }
