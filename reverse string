@@ -1,20 +1,18 @@
 class Solution {
-    public String reverseWords(String s) {
-        
-        // Remove extra spaces and split into words
-        String[] words = s.trim().split("\\s+");
 
-        // Build the result from last word to first word
-        StringBuilder result = new StringBuilder();
+    public void reverseString(char[] s) {
 
-        for (int i = words.length - 1; i >= 0; i--) {
-            result.append(words[i]);
+        int left = 0;
+        int right = s.length - 1;
 
-            if (i != 0) {
-                result.append(" ");
-            }
+        while (left < right) {
+
+            char temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+
+            left++;
+            right--;
         }
-
-        return result.toString();
     }
 }
